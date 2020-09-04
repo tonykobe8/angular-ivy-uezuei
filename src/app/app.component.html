@@ -1,0 +1,13 @@
+
+
+ 
+<span *ngFor="let Employee of Company_Employees">
+  <img class="img-container"  mat-card-image src="{{Employee.img}}" alt="Photos of CodeTripe Employee" style="width:50%"><br>
+{{Employee.FirstName}}{{Employee.LastName}}<br>
+{{Employee.Title}}<br>
+{{Employee.Age}}<br>
+
+
+
+<button>update</button>
+<button (click)="delete(Employee)" > delete</button><br>
