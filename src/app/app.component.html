@@ -1,3 +1,5 @@
+
+
 <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt >
 <mat-grid-list cols="3" rowHeight="500px">
   <mat-grid-tile *ngFor="let Employee of Company_Employees">
@@ -12,7 +14,7 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="accent" >Update</button>
+    <button mat-raised-button color="accent" (click)="updateDialog(Employee)">Update</button>
 
       <button mat-raised-button (click)="openDialog(Employee)" color="warn">Delete</button>
   </mat-card-actions>
