@@ -1,13 +1,22 @@
+<img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt >
+<mat-grid-list cols="3" rowHeight="500px">
+  <mat-grid-tile *ngFor="let Employee of Company_Employees">
 
+    <mat-card class="card">
+  <img class="img-container"  mat-card-image src="{{Employee.img}}" alt="Photos of CodeTripe Employee" style="width:100%">
+  <mat-card-content>
+       <h1>{{Employee.FirstName}} {{Employee.LastName}} </h1>
+    <p class="title">{{Employee.Title}}</p>
+    <p>
+      {{Employee.Age}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent" >Update</button>
 
- 
-<span *ngFor="let Employee of Company_Employees">
-  <img class="img-container"  mat-card-image src="{{Employee.img}}" alt="Photos of CodeTripe Employee" style="width:50%"><br>
-{{Employee.FirstName}}{{Employee.LastName}}<br>
-{{Employee.Title}}<br>
-{{Employee.Age}}<br>
+      <button mat-raised-button (click)="openDialog(Employee)" color="warn">Delete</button>
+  </mat-card-actions>
+</mat-card>
 
-
-
-<button>update</button>
-<button (click)="delete(Employee)" > delete</button><br>
+  </mat-grid-tile>
+</mat-grid-list>

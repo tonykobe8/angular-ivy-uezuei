@@ -1,4 +1,6 @@
 import { Component, VERSION } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+ import {DialogComponent} from './dialog/dialog.component';
 
 @Component({
   selector: 'my-app',
@@ -9,6 +11,7 @@ import { Component, VERSION } from '@angular/core';
   
 export class AppComponent  {
   name = 'Angular ' + VERSION.major;
+  constructor(public dialog: MatDialog) {}
 
 
   Company_Employees= 
@@ -23,11 +26,24 @@ export class AppComponent  {
     {FirstName:"Portia", LastName: "Mashaba", Title: "Software Developer", Age:21, img:"https://image.shutterstock.com/image-photo/african-american-customer-support-operator-260nw-1698411634.jpg" },
     {FirstName:"Nelly", LastName: "Msiza", Title: "Business Analyst", Age:24, img: "https://secureservercdn.net/192.169.221.188/ca0.384.myftpupload.com/wp-content/uploads/2015/02/5-startegies-for-finding-a-dream-job.jpg"}];
 
-delete(Employee){ 
+  openDialog(Employee) {
+    const dialogRef = this.dialog.open(DialogComponent,{
+      data:{
+        message: 'Are you sure want to delete?',
+        buttonText: {
+          ok: 'Delete',
+          cancel: 'No'
+        }
+      }
+    });
 
-const index = this.Company_Employees.indexOf(Employee,0);
-if(index > -1){
-this.Company_Employees.splice(index,1)
-}
-}
+       dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+      const index = this.Company_Employees.indexOf(Employee,0)
+      if (index >-1) {
+        this.Company_Employees.splice(index,1);
+      }
+      }
+    });
+     }
      }
