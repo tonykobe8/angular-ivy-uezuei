@@ -17,7 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ,MatDialogModule],
+  imports:      [ BrowserModule, FormsModule ,MatDialogModule,MatGridListModule,MatCardModule,BrowserAnimationsModule],
 
   declarations: [ AppComponent, HelloComponent, DialogComponent],
   entryComponents:[DialogComponent],
